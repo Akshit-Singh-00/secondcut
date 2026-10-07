@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: SecondCut - OpenCV 5 image inspection and constrained recovery
+Parameters:
+  JudgePassword:
+    Type: String
+    NoEcho: true
+    MinLength: 20
+    Description: Shared judge password; username is judge. Do not put it in source control.
+Resources:
+  EvidenceBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      LifecycleConfiguration:
+        Rules:
+          - Id: ExpireJudgeEvidence
+            Status: Enabled
+            ExpirationInDays: 30
+  VisionFunction:
+    Type: AWS::Serverless::Function
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: ..
+      DockerTag: secondcut-v1
+    Properties:
+      PackageType: Image
+      Architectures: [x86_64]
+      MemorySize: 1024
+      Timeout: 30
+      ReservedConcurrentExecutions: 2
+      FunctionUrlConfig:
+        AuthType: NONE
+      Environment:
+        Variables:
+          SECONDCUT_BUCKET: !Ref EvidenceBucket
+          SECONDCUT_PASSWORD: !Ref JudgePassword
+          SECONDCUT_DEPLOYMENT: aws-lambda
+      Policies:
+        - Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action: [s3:GetObject, s3:PutObject]
+              Resource: !Sub "${EvidenceBucket.Arn}/projects/*"
+  FunctionLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${VisionFunction}"
+      RetentionInDays: 7
+Outputs:
+  Endpoint:
+    Value: !GetAtt VisionFunctionUrl.FunctionUrl
+  EvidenceBucket:
+    Value: !Ref EvidenceBucket

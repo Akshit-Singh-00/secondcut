@@ -1,0 +1,16 @@
+.venv/
+.cache/
+__pycache__/
+.pytest_cache/
+.env
+*.pyc
+artifacts/runtime/
+artifacts/*.zip
+artifacts/*.mp4
+artifacts/*.avi
+artifacts/browser-*.png
+artifacts/devpost-*.png
+artifacts/report-page-*.png
+artifacts/mat-preview-*.png
+infra/deployment.json
+artifacts/video-preview.png

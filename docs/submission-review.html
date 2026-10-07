@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SecondCut - submission review</title><style>body{font:16px/1.7 system-ui;background:#f6f5ef;color:#203b32;max-width:920px;margin:40px auto;padding:0 24px}h1{font-size:40px;letter-spacing:-1px}h2{font-size:18px}section{background:#fffef9;border:1px solid #d7dfcf;padding:22px;margin:18px 0;border-radius:12px}pre{font:14px/1.8 system-ui;white-space:pre-wrap;overflow-wrap:anywhere}.status{padding:20px;background:#fae8df;border-radius:12px}a{color:#3e6751}</style></head><body><h1>SecondCut / review the answers</h1><p>Prepared 7 October 2026. This page contains the exact current draft wording. Final submission has not been authorized.</p><div class="status"><strong>Not ready for final submission</strong><ul><li>Authorized AWS account, region, spending budget, and verified live deployment</li><li>Participant/team introduction and confirmed display name</li><li>Real-cardboard measurement and assembly evidence, or explicitly limited software-only claims</li><li>Final &lt;=5-minute demo hosted on YouTube, Vimeo, or Youku</li><li>Review all answers and artifacts with the participant before final submission</li></ul></div><section><h2>Project name</h2><pre>SecondCut</pre></section><section><h2>Elevator pitch</h2><pre>A wrong cut deserves a second chance. SecondCut uses OpenCV 5 to measure damaged cardboard, propose compatible repair templates, and check the next cut.</pre></section><section><h2>Built with</h2><pre>python, opencv, fastapi, numpy, javascript, sqlite</pre></section><section><h2>Repository</h2><pre>https://github.com/Akshit-Singh-00/secondcut
+Proposed destination only; public publication requires the participant&#x27;s explicit approval and has not occurred.</pre></section><section><h2>Working endpoint</h2><pre>Pending verified AWS deployment</pre></section><section><h2>Video URL</h2><pre>Pending final hosted demo</pre></section><section><h2>Special awards</h2><pre>None selected; eligibility not claimed</pre></section><section><h2>Project story</h2><pre>## Inspiration
+A wrong cut does not always make a whole sheet unusable. The motivating question behind SecondCut is whether a camera can turn the material that remains into a compatible next step, instead of simply flagging a defect.
+
+## What it does
+SecondCut measures one flat cardboard blank on a printed calibration mat and finds a smaller rectangular panel that fits the visible material and the user&#x27;s minimum dimensions. It supports shortened edges, missing corners, and deep notches. The prototype targets a two-panel cross-slot organizer insert. Both panels inherit the revised height, and both slots use the same entered thickness and half-height depth. A user must accept the plan before downloading a full-size SVG. A new photograph can then be checked against the accepted outline and slot. The companion panel requires separate stock.
+
+## How we built it
+The working local application uses Python, FastAPI, OpenCV 5.0.0, NumPy, SQLite, and a responsive JavaScript interface. OpenCV detects four ArUco markers, rectifies the photograph, segments the cardboard, preserves holes, and checks edge sharpness. A bounded rectangle solver applies a 2 mm edge allowance, respects dimension constraints, and removes dominated options. The controller selects recapture, replacement, or human review from the visual evidence. It is deterministic and does not use an LLM. Codex assisted with implementation, testing, documentation, and submission preparation.
+
+## AWS architecture and current status
+The repository includes a prepared AWS SAM container deployment for the OpenCV and planning backend on Lambda, private S3 evidence storage, and CloudWatch logs. AWS deployment has not yet been completed or verified. This draft does not claim a live cloud endpoint, COOL integration, or special-award eligibility.
+
+## Challenges
+A plausible-looking rectangle is not enough: it must stay entirely within the observed material, preserve holes and damage, and keep the companion slot compatible. Similarly, high silhouette overlap can conceal a missing narrow slot, so verification separately checks slot clearance. Browser testing also led to clearer trade-offs between recovery alternatives.
+
+## What works so far
+The local workflow supports capture, inspection, repair review, approval-gated template export, and recapture verification. Eighteen automated tests pass. Nine deterministic generated-image scenarios produce the expected recovery, replacement, or recapture decision. These are synthetic regression results, not real-world accuracy or material-saving claims.
+
+## What we learned
+Recovery is a constraint problem as well as a perception problem. Measurement uncertainty, compatible joints, user intent, and explicit rejection matter as much as finding the outline. A useful system must say when it cannot support the next cut.
+
+## Limitations and next steps
+The current prototype assumes flat matte brown cardboard aligned with a correctly printed A4 mat, even lighting, and a single visible blank. Thickness is entered manually. Warping, printed graphics, glare, arbitrary CAD, strength prediction, and cutting-machine control are outside scope. Verification checks visible geometry only. Physical cardboard assembly validation, AWS deployment, and the final team/demo video are pending.
+
+## Related work
+scrAPP already explores smartphone contour capture and scrap reuse, and MIT&#x27;s Fabricaide supports material-aware design. SecondCut focuses on a bounded post-error recovery loop with compatible slot propagation and recapture verification. We do not claim a world-first algorithm.
+
+References: https://pure.au.dk/portal/en/publications/scrapp-enabling-reuse-of-scrap-materials-with-a-smartphone/ and https://hcie.csail.mit.edu/research/fabricaide/fabricaide.html</pre></section><section><h2>Testing instructions</h2><pre>Current status: local prototype. AWS endpoint and final demo video are pending; do not treat this draft as a completed deployment.
+
+1. Clone the repository. Use Python 3.12 and create/activate a virtual environment.
+2. Install: python -m pip install -r requirements-dev.txt -c requirements.lock.txt
+3. Run: python -m uvicorn secondcut.app:app --host 127.0.0.1 --port 8000
+4. Open http://127.0.0.1:8000. Confirm OpenCV 5.0.0 in the header.
+5. Select Missing corner, then Find my second cut. Compare repair dimensions, accept a plan, and download the SVG and inspection record.
+6. Choose Try a synthetic repaired panel. It should report a geometry match while explicitly noting that physical fit remains unverified.
+7. Inspect Too little left: expect replacement. Inspect Missing marker: expect recapture and no cutting template.
+8. Run python -m pytest -q and python scripts/evaluate.py.
+9. To test a real photo, print the supplied A4 mat at 100%, verify marker spacing, place a flat brown blank within the markers, and follow the field guide.
+
+Built-in samples are synthetic. The companion panel requires separate stock. The output is an insert without base or outer walls. For AWS deployment instructions and pending verification steps, see infra/README.md.</pre></section><p><a href="https://devpost.com/submit-to/30984-opencv-ai-competition-2026-powered-by-aws/manage/submissions/1222437-secondcut/project-overview">Open the Devpost draft</a></p></body></html>

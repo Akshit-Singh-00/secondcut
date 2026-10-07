@@ -1,0 +1,113 @@
+{
+  "dataset": "9 deterministic, generated images; NOT real photographs",
+  "opencv": "5.0.0",
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "passed": 9,
+  "total": 9,
+  "physical_validation": "pending",
+  "results": [
+    {
+      "sample": "intact",
+      "expected": "review",
+      "actual": "review",
+      "passed": true,
+      "elapsed_ms": 31.85,
+      "best_option": {
+        "x": 18,
+        "y": 92,
+        "length": 175,
+        "height": 66
+      }
+    },
+    {
+      "sample": "corner",
+      "expected": "review",
+      "actual": "review",
+      "passed": true,
+      "elapsed_ms": 23.54,
+      "best_option": {
+        "x": 18,
+        "y": 92,
+        "length": 143,
+        "height": 66
+      }
+    },
+    {
+      "sample": "short",
+      "expected": "review",
+      "actual": "review",
+      "passed": true,
+      "elapsed_ms": 25.85,
+      "best_option": {
+        "x": 18,
+        "y": 92,
+        "length": 137,
+        "height": 66
+      }
+    },
+    {
+      "sample": "notch",
+      "expected": "review",
+      "actual": "review",
+      "passed": true,
+      "elapsed_ms": 27.57,
+      "best_option": {
+        "x": 17,
+        "y": 115,
+        "length": 176,
+        "height": 43
+      }
+    },
+    {
+      "sample": "reject",
+      "expected": "replace",
+      "actual": "replace",
+      "passed": true,
+      "elapsed_ms": 23.0,
+      "best_option": null
+    },
+    {
+      "sample": "missing-marker",
+      "expected": "recapture",
+      "actual": "recapture",
+      "passed": true,
+      "elapsed_ms": 3.56,
+      "best_option": null
+    },
+    {
+      "sample": "perspective",
+      "expected": "review",
+      "actual": "review",
+      "passed": true,
+      "elapsed_ms": 25.26,
+      "best_option": {
+        "x": 17,
+        "y": 92,
+        "length": 176,
+        "height": 66
+      }
+    },
+    {
+      "sample": "blur",
+      "expected": "recapture",
+      "actual": "recapture",
+      "passed": true,
+      "elapsed_ms": 6.94,
+      "best_option": null
+    },
+    {
+      "sample": "noise",
+      "expected": "review",
+      "actual": "review",
+      "passed": true,
+      "elapsed_ms": 92.94,
+      "best_option": {
+        "x": 18,
+        "y": 92,
+        "length": 175,
+        "height": 66
+      }
+    }
+  ]
+}

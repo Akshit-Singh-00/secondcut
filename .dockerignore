@@ -1,0 +1,6 @@
+*
+!requirements.txt
+!requirements.lock.txt
+!secondcut/**
+!static/**
+!Dockerfile

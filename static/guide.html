@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SecondCut field guide</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <a class="brand" href="/">↳ secondcut.</a
+      ><a href="/">Back to the bench ↗</a>
+    </header>
+    <main class="guide">
+      <p class="eyebrow">WORK WITH WHAT REMAINS</p>
+      <h1>The field guide.</h1>
+      <p>
+        SecondCut is a research prototype for recovering one flat rectangular
+        cardboard blank and generating a compatible two-panel cross-slot
+        organizer insert. It does not reconstruct arbitrary objects or certify
+        structural strength.
+      </p>
+      <h2>1. Prepare the photograph</h2>
+      <ol>
+        <li>
+          <a href="/api/mat.png">Download the A4 mat</a>. Print at actual size
+          (210 × 297 mm), without “fit to page.” Verify the horizontal distance
+          between the top marker centers is 180 mm and the vertical distance
+          between left marker centers is 267 mm.
+        </li>
+        <li>
+          Use a matte brown cardboard blank on the white mat. Keep it flat,
+          horizontal, and inside the central area, below the top markers and
+          above the bottom markers. Printed graphics, pale cardboard, strong
+          shadows, and gloss are unsupported.
+        </li>
+        <li>
+          Photograph all four markers and every edge of the blank. Move close
+          enough to keep the markers sharp. Do not cover holes or damaged areas.
+        </li>
+        <li>
+          Enter measured thickness and your minimum acceptable dimensions.
+          Dimensions are in millimetres. The solver reserves 2 mm around all
+          observed edges and holes.
+        </li>
+      </ol>
+      <h2>2. Review the repair</h2>
+      <p>
+        The green rectangle shows the blank that can be cut out of the remaining
+        material. Options cannot exceed the original design dimensions. A
+        smaller main panel changes the insert footprint; check it still suits
+        your intended container. Retained area refers only to the main panel,
+        not total project material or carbon savings.
+      </p>
+      <p>
+        The companion panel is generated from separate stock. Both panels have
+        the same height; the main panel has a slot from the top, and its
+        companion has a slot from the bottom. Slot widths use your entered
+        thickness. Test the fit on spare material first.
+      </p>
+      <h2>3. Cut and check</h2>
+      <p>
+        Accept a plan to unlock its SVG. Print at 100% and verify the 50 mm
+        scale bar. Align the main outline with the photographed recovery area,
+        then transfer it to the cardboard. The tool does not control cutting
+        equipment. Use appropriate hand tools and supervision.
+      </p>
+      <p>
+        Photograph the trimmed, slotted main panel on the mat. Verification
+        compares width, height, silhouette, and whether the slot is actually
+        open. The tolerance is ±3 mm with silhouette overlap of at least 94% and
+        slot clearance of at least 75%. These are prototype thresholds, not
+        validated accuracy guarantees. Check both panels fit together by hand.
+      </p>
+      <h2>What the samples prove</h2>
+      <p>
+        All built-in sample images are generated, including the repaired-panel
+        example. They exercise the actual OpenCV and planning code. They do not
+        establish real-world camera accuracy, usability, strength, or material
+        savings. Physical validation is pending.
+      </p>
+      <h2>Data and decisions</h2>
+      <p>
+        Inspection evidence is stored in this deployment’s local database.
+        Images are not sent to a model provider. The workflow uses deterministic
+        tool orchestration and a geometric solver, not an LLM. It chooses
+        recapture, recovery review, or replacement based on visual evidence.
+        Exported records include input provenance and tool decisions.
+      </p>
+      <a class="primary" href="/">Return to your workbench ↗</a>
+    </main>
+  </body>
+</html>
