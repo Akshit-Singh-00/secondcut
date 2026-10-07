@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="810" height="540" viewBox="0 0 810 540">
+<rect width="810" height="540" fill="#f6f5ef"/>
+<g font-family="Segoe UI,Arial,sans-serif">
+<text x="45" y="55" font-size="13" font-weight="700" letter-spacing="2" fill="#db643b">OPENCV 5 · MATERIAL RECOVERY</text>
+<text x="40" y="133" font-size="76" font-weight="700" letter-spacing="-4" fill="#203b32">secondcut.</text>
+<text x="45" y="172" font-size="23" fill="#61765a">A wrong cut. A workable next step.</text>
+<rect x="45" y="212" width="720" height="239" rx="20" fill="#e8eee0"/>
+<path d="M90 260 H238 L282 307 V396 H90 Z" fill="#c59460" stroke="#99704b" stroke-width="2"/>
+<path d="M238 260 V307 H282" fill="none" stroke="#f6f5ef" stroke-width="3" stroke-dasharray="6 5"/>
+<rect x="98" y="315" width="177" height="73" fill="none" stroke="#345e38" stroke-width="3" stroke-dasharray="7 4"/>
+<path d="M324 328 H409 M395 314 L409 328 L395 342" fill="none" stroke="#db643b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M450 291 H542 V332 H550 V291 H642 V381 H450 Z" fill="#c59460" stroke="#345e38" stroke-width="3"/>
+<text x="93" y="431" font-size="13" fill="#203b32">MEASURE WHAT REMAINS</text>
+<text x="477" y="431" font-size="13" fill="#203b32">PLAN THE NEXT CUT</text>
+<text x="45" y="495" font-size="17" font-weight="600" fill="#203b32">Akshit Singh</text>
+<text x="765" y="495" text-anchor="end" font-size="13" fill="#61765a">Prototype · conceptual illustration</text>
+</g></svg>
