@@ -46,9 +46,10 @@ Evidence objects expire after 30 days. The bucket is retained on stack deletion 
 
 ## Limitations
 
-The Lambda Docker image builds and runs the OpenCV inspection smoke check in
-[GitHub CI](https://github.com/Akshit-Singh-00/secondcut/actions/runs/37578809949).
+The AWS SAM template passes lint validation, and the Lambda Docker image builds
+and runs the OpenCV inspection smoke check in
+[GitHub CI](https://github.com/Akshit-Singh-00/secondcut/actions/runs/37579735556).
 The same run passes the 18-test suite and nine generated evaluation scenarios
-on Linux. SAM validation, S3 persistence, hosted authentication, and cloud runtime
-performance remain unverified until AWS deployment is exercised. Writes are
+on Linux. S3 persistence, hosted authentication, and cloud runtime performance
+remain unverified until AWS deployment is exercised. Writes are
 last-write-wins; the prototype assumes a single reviewer per project.
