@@ -14,3 +14,11 @@ jobs:
       - run: python -m pip install -r requirements-dev.txt -c requirements.lock.txt
       - run: python -m pytest -q
       - run: python scripts/evaluate.py
+      - name: Build the Lambda container
+        run: docker build -t secondcut-ci .
+      - name: Verify OpenCV in the Lambda image
+        run: >-
+          docker run --rm --entrypoint python secondcut-ci -c
+          "import cv2; from secondcut.fixtures import fixture; from secondcut.vision import inspect;
+          assert cv2.__version__.startswith('5.'); assert inspect(fixture('corner'))['status']=='measured';
+          print('Lambda image vision smoke check passed')"
