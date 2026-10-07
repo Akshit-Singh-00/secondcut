@@ -16,9 +16,9 @@ for folder, extensions in allowed_extensions.items():
                              for part in p.relative_to(root/folder).parts))
 # Never include deployment.json or other account-specific configuration.
 files.extend(root/'infra'/name for name in ('README.md', 'template.yaml'))
-for name in ('README.md','Dockerfile','requirements.txt','requirements-dev.txt','requirements.lock.txt','.dockerignore'):
+for name in ('README.md','Dockerfile','requirements.txt','requirements-dev.txt','requirements.lock.txt','.dockerignore','.github/workflows/test.yml'):
     files.append(root/name)
-for name in ('evaluation.json','calibration-mat.png','workbench.png','repair-review.png','verification.png','recapture.png','architecture.png','secondcut-software-walkthrough.mp4'):
+for name in ('evaluation.json','calibration-mat.png','cover.png','workbench.png','repair-review.png','verification.png','recapture.png','architecture.png','secondcut-software-walkthrough.mp4'):
     p=root/'artifacts'/name
     if p.exists():files.append(p)
 destination=root/'artifacts'/'secondcut-review-package.zip'

@@ -9,6 +9,7 @@ SecondCut is a camera-guided research prototype that recovers a flat cardboard b
 ## Current evidence and limits
 
 - Working local web application and real OpenCV 5.0.0 image processing.
+- Linux tests and the Lambda container vision smoke check pass in [GitHub CI](https://github.com/Akshit-Singh-00/secondcut/actions/runs/37578809949).
 - Three supported damage types: shortened edge, missing corner, and deep notch.
 - Approval-gated SVG templates, per-inspection tool traces, and geometry verification.
 - All built-in samples are **synthetic**. Passing them does not establish physical measurement accuracy or assembly fit.
